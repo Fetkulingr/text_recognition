@@ -1,12 +1,12 @@
 # text_recognition
 Описание программы:
-Программа "text_recognition" представляет собой интерфейс для извлечения текста из изображений и его редактирования. Она использует библиотеки OCR (Optical Character Recognition), такие как Tesseract и EasyOCR, для распознавания текста на изображении.
-Распознавания текста оглавления:
-![1Снимок](https://github.com/Fetkulingr/text_recognition/assets/103204349/133d5087-ce2f-488b-b037-8ba9f4b1a454)
-Распознавания текста книги:
-![2Снимок](https://github.com/Fetkulingr/text_recognition/assets/103204349/7eabe0fc-37d2-4974-9f12-4f5bafe789d4)
-Иностранного текста:
-![3Снимок](https://github.com/Fetkulingr/text_recognition/assets/103204349/b8ebf92c-3b1b-4263-9129-cd5f312e9a7d)
+Программа "text_recognition" представляет собой интерфейс для извлечения текста из изображений и его редактирования. Она использует библиотеки OCR (Optical Character Recognition), такие как Tesseract и EasyOCR, для распознавания текста на изображении.<br />
+# Распознавания текста оглавления:
+![1Снимок](https://github.com/Fetkulingr/text_recognition/assets/103204349/133d5087-ce2f-488b-b037-8ba9f4b1a454)<br />
+# Распознавания текста книги:
+![2Снимок](https://github.com/Fetkulingr/text_recognition/assets/103204349/7eabe0fc-37d2-4974-9f12-4f5bafe789d4)<br />
+# Иностранного текста:
+![3Снимок](https://github.com/Fetkulingr/text_recognition/assets/103204349/b8ebf92c-3b1b-4263-9129-cd5f312e9a7d)<br />
 
 # Основные функции программы:
 
