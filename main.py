@@ -1,3 +1,11 @@
+'''
+This module make
+
+Athor: Fetkulin Grigory, Fetkulin.G.R@yandex.ru
+Starting 2023/08/08
+Ending 2024//
+
+'''
 # Установка необходимых библиотек
 import tkinter as tk
 from tkinter import filedialog
