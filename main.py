@@ -6,7 +6,7 @@ Starting 2023/08/08
 Ending 2024//
 
 '''
-# Установка необходимых библиотек
+# Installing the necessary libraries
 import tkinter as tk
 from tkinter import filedialog
 from tkinter.ttk import Combobox, Radiobutton, Progressbar
@@ -17,27 +17,27 @@ import numpy as np
 from PIL import Image, ImageTk
 from tkinter.messagebox import showinfo
 from tkinter import messagebox
-# Установка пути к исполняемому файлу Tesseract OCR (если не установлено в системе)
+# Setting the path to the Tesseract OCR executable (if not installed on the system)
 pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
-# Создание графического интерфейса
+# Creating a graphical interface
 root = tk.Tk()
 root.title("Распознавание текста")
 root.geometry("800x600")
-# Создание поля для отображения изображения
+# Creating an image display field
 image_label = tk.Label(root)
 image_label.pack()
-# Создание текстового поля
+# Creating a text field
 text_box = tk.Text(root, height=30, width=80)
 text_box.pack()
 
-# Функция для отображения изображения
+# Function for image display
 def display_image(file_path):
     image = Image.open(file_path)
     image = image.resize((400, 400))  # Изменение размера изображения для отображения
     photo = ImageTk.PhotoImage(image)
     image_label.config(image=photo)
     image_label.image = photo
-# Функция для открытия текстового файла
+# Function for opening a text file
 def open_file():
     file_path = filedialog.askopenfilename(filetypes=[("Текстовые файлы", "*.txt")])
     if file_path:
@@ -46,7 +46,7 @@ def open_file():
             text_box.delete("1.0", tk.END)
             text_box.insert(tk.END, text)
 
-# Функция для извлечения текста из изображения
+# Function for extracting text from an image
 def extract_text():
     file_path = filedialog.askopenfilename(filetypes=[("Изображения", "*.jpeg;*.jpg;*.png")])
     if file_path:
@@ -66,27 +66,27 @@ def extract_text():
 
         text_box.delete("1.0", tk.END)
         text_box.insert(tk.END, text)
-# Обновление Progressbar и вывод сообщения о завершении
+# Updating the Progressbar and displaying a completion message
         progress_bar.step(100)
         showinfo("Распознавание завершено", "Текст успешно извлечен из изображения.")
 
-# Функция для сохранения текста в файл
+# Function for saving text to a file
 def save_file():
     text = text_box.get("1.0", tk.END)
     file_path = filedialog.asksaveasfilename(defaultextension=".txt", filetypes=[("Текстовые файлы", "*.txt")])
     if file_path:
         with open(file_path, "w") as file:
             file.write(text)
-# Функция для очистки текстового поля
+# Function to clear the text field
 def clear_text():
     text_box.delete("1.0", tk.END)
-# Функция для копирования текста в буфер обмена
+# Function for copying text to clipboard
 def copy_text():
     text = text_box.get("1.0", tk.END)
     root.clipboard_clear()
     root.clipboard_append(text)
 
-# Изменение размеров текстового поля на основе содержимого
+# Resizing the text field based on the content
 def resize_textbox(event):
     text_box.config(height=text_box.index('end - 1 line').split('.')[0])
 text_box.bind('<KeyRelease>', resize_textbox)
@@ -94,7 +94,7 @@ text_box.bind('<KeyRelease>', resize_textbox)
 language_combobox = Combobox(root, values=['eng', 'rus'])
 language_combobox.set('eng')
 language_combobox.pack()
-# Создание Radiobutton для выбора библиотеки распознавания
+# Creating a Radiobutton to select the recognition library
 engine_var = tk.StringVar()
 engine_var.set("Tesseract")
 engine_frame = tk.Frame(root)
@@ -105,7 +105,7 @@ tesseract_button = Radiobutton(engine_frame, text="Tesseract", variable=engine_v
 tesseract_button.pack()
 easyocr_button = Radiobutton(engine_frame, text="EasyOCR", variable=engine_var, value="EasyOCR")
 easyocr_button.pack()
-# Создание кнопок
+# Creating buttons
 open_button = tk.Button(root, text="Открыть файл", command=open_file)
 open_button.pack()
 extract_button = tk.Button(root, text="Извлечь текст", command=extract_text)
@@ -116,12 +116,12 @@ clear_button = tk.Button(root, text="Очистить текст", command=clear
 clear_button.pack()
 copy_button = tk.Button(root, text="Копировать текст", command=copy_text)
 copy_button.pack()
-# Создание Progressbar
+# Creating a Progressbar
 progress_bar = Progressbar(root, orient=tk.HORIZONTAL, length=400, mode='determinate')
 progress_bar.pack()
 
 
-# Функция отображения информации о программе
+# Program information display function
 def show_info():
     messagebox.showinfo("О программе", "Распознавание текста v1.0\nАвтор: Феткулин Григорий")
 # Создание главного меню
