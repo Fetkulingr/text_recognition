@@ -138,5 +138,5 @@ help_menu = tk.Menu()
 help_menu.add_command(label="О программе", command=show_info)
 main_menu.add_cascade(label="Справка", menu=help_menu)
 root.config(menu=main_menu)
-# Запуск основного цикла
+# Starting the main cycle
 root.mainloop()
